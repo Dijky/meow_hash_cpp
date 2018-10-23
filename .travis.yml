@@ -36,8 +36,9 @@ matrix:
     
 before_script:
     - eval "${MATRIX_EVAL}"
+    - ${CXX} --version
     - mkdir build
     - cd build
     - cmake -DCMAKE_BUILD_TYPE=Release ..
       
-script: make && make test
+script: cmake --build . && ctest
