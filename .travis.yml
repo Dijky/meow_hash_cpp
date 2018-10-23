@@ -26,16 +26,16 @@ matrix:
       addons:
         apt:
           sources:
+            - ubuntu-toolchain-r-test
             - llvm-toolchain-trusty-7
           packages:
+            - g++-8
             - clang-7
       env:
         - MATRIX_EVAL="CC=clang-7 && CXX=clang++-7"
-
-before_install:
-    - eval "${MATRIX_EVAL}"
     
 before_script:
+    - eval "${MATRIX_EVAL}"
     - mkdir build
     - cd build
     - cmake -DCMAKE_BUILD_TYPE=Release ..
