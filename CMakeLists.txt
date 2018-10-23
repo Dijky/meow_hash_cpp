@@ -13,7 +13,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Set general C++ flags
-set(CMAKE_CXX_FLAGS "-Wall -Wpedantic -Wextra -march=native")
+add_compile_options(-Wall)
+if(NOT MSVC)
+	add_compile_options(-Wextra -Wpedantic -march=native)
+endif(NOT MSVC)
 
 # Set optimization/debug flags
 set(CMAKE_CXX_FLAGS_DEBUG "-g")

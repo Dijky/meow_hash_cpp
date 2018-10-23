@@ -8,6 +8,7 @@ add_executable(testing
 )
 
 target_link_libraries(testing meow_hash_cpp)
+target_compile_features(testing PRIVATE cxx_std_17)
 
 # Add test run
 add_test(testing testing)
